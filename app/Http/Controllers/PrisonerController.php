@@ -146,21 +146,25 @@ $response = $client->addInputs([
             echo "Status code: " . $response->status()->statusCode();
         }
     }
-    public function faceSearch()
+    public function faceSearch($test)
     {
                 
         $client = new ClarifaiClient('f0a6f4493bc945a29a494d59f752e1f0');
 
         $response = $client->searchInputs(
-                SearchBy::imageURL('https://samples.clarifai.com/metro-north.jpg'))
+                SearchBy::imageURL($test))
             ->executeSync();
+        
 
-        if ($response-> isSuccessful()) {
+        if($response-> isSuccessful()) {
 
-            /** @var SearchInputsResult $result */
+            /** @var SearchInputsResult $    */
             $result = $response->get();
             foreach ($result->searchHits() as $searchHit) {
                 echo $searchHit->input()->id() . ' ' . $searchHit->score() . "\n";
+                if($searchHit->score()>=0.8000000){
+                    return $searchHit->input()->id();
+                }
             }
         } else {
             echo "Response is not successful. Reason: \n";
@@ -169,4 +173,23 @@ $response = $client->addInputs([
             echo "Status code: " . $response->status()->statusCode();
         }
             }
+        public function facetsearch(Request $request)
+        {
+            if ($request->has('image')) {
+                $image = $request->file('image');
+                $name = time();
+                $folder = '/uploads/images/search/';
+                $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+                $this->uploadOne($image, $folder, 'public', $name);
+                $files=$filePath;
+                $facess=env('APP_URL')."{$filePath}";
+                // dd($facess);
+                $result=$this->facesearch($facess);   
+                // dd($result->status()->description());
+                // if($result->status()->description()=="Ok"){
+                //     $image=$result->get()[0]->id();
+                //     // dd($image);
+                // }
+            }   
+        }
 }

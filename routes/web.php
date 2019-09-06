@@ -17,10 +17,14 @@ Route::get('/', function () {
 Route::get('/form',function(){
     return view('pages.form');
 });
+Route::get('/facetsearch',function(){
+    return view('pages.facesearch');
+});
 Route::post('/form','PrisonerController@store');
 Route::get('/prison','PrisonerController@index');
 Route::get('/prison/create','PrisonerController@create');
-Route::get('q','PrisonerController@face');
+Route::post('facetsearch','PrisonerController@facesearch');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
