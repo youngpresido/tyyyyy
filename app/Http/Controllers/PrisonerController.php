@@ -72,6 +72,7 @@ class PrisonerController extends Controller
             $folder = '/uploads/images/';
             $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
             $this->uploadOne($image, $folder, 'public', $name);
+            dd($this->uploadOne($image, $folder, 'public', $name));
             $files=$filePath;
             $facess=env('APP_URL')."{$filePath}";
             // dd($facess);
