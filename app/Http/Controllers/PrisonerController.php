@@ -175,7 +175,7 @@ $response = $client->addInputs([
             }
         public function facetsearch(Request $request)
         {
-            dd($request->has('image'));
+            // dd($request->has('image'));
             if ($request->has('image')) {
                 $image = $request->file('image');
                 $name = time();
@@ -183,8 +183,9 @@ $response = $client->addInputs([
                 $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
                 $this->uploadOne($image, $folder, 'public', $name);
                 $files=$filePath;
+                
                 $facess=env('APP_URL')."{$filePath}";
-                // dd($facess);
+                dd($facess);
                 $result=$this->facesearch($facess);   
                 // dd($result->status()->description());
                 // if($result->status()->description()=="Ok"){
