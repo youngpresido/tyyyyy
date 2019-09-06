@@ -72,10 +72,10 @@ class PrisonerController extends Controller
             $this->uploadOne($image, $folder, 'public', $name);
             $facess=env('APP_URL')."{$filePath}";
             // dd($facess);
-            $result=$this->face($facess);
-            dd($result);
+            $result=$this->face($facess);   
+            // dd($result);
             if($result->status()->description()=="ok"){
-                $image=$result->inputs();
+                $image=$result->deserialized()[0]['id'];
                 dd($image);
             }
         }
