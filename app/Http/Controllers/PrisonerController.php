@@ -75,7 +75,7 @@ class PrisonerController extends Controller
             $result=$this->face($facess);   
             // dd($result->status()->description());
             if($result->status()->description()=="Ok"){
-                $image=$result->id;
+                $image=$result->get();
                 dd($image);
             }
         }
