@@ -46,8 +46,6 @@ class CreatePrisonersTable extends Migration
             $table->string('outcome');
             $table->string('weapon');
             $table->string('personnel');
-            $table->string('employer_state');
-            $table->string('employer_postalcode');
             $table->string('finger_print')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
