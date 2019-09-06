@@ -11,6 +11,7 @@ use \Clarifai\DTOs\Inputs\ClarifaiURLImage;
 use Clarifai\DTOs\Searches\SearchBy;
 use Clarifai\DTOs\Searches\SearchInputsResult;
 use App\Traits\UploadTrait;
+use GuzzleHttp\Client as GuzzleClient;
 class PrisonerController extends Controller
 {
     use UploadTrait;
@@ -183,15 +184,38 @@ $response = $client->addInputs([
                 $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
                 $this->uploadOne($image, $folder, 'public', $name);
                 $files=$filePath;
-                
+                $prisoner=Prisoner::whereId(1)->first();
+                $face1=env('APP_URL').$prisoner->image;
                 $facess=env('APP_URL')."{$filePath}";
                 // dd($facess);
-                $result=$this->facesearch($facess);   
+                // $result=$this->facesearch($facess);   
                 // dd($result->status()->description());
                 // if($result->status()->description()=="Ok"){
                 //     $image=$result->get()[0]->id();
                 //     // dd($image);
                 // }
+                $result=$this->facex($face1,$facess);
             }   
+        }
+        public function facex($m1,$m2)
+        {
+            $headers = [
+                'Content-Type' => 'application/json',
+                'user_id'=>'229e1de8b60a841ca29c',
+                'user_key'=>'2b6b6c489d8410a3eed8'
+            ];
+            $client = new GuzzleClient([
+                'headers' => $headers
+            ]);
+
+            $body = '{
+                "img_1" : '.$m1.',
+                "img_2" : '.$m2.',
+            }';
+            $r = $client->request('POST', 'http://www.facexapi.com/compare_faces?face_det=1', [
+                'body' => $body
+            ]);
+            $response = $r->getBody()->getContents();
+            dd($response);
         }
 }
