@@ -71,7 +71,7 @@ class PrisonerController extends Controller
             $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
             $this->uploadOne($image, $folder, 'public', $name);
             $facess=env('APP_URL')."{$filePath}";
-            dd($facess);
+            // dd($facess);
             $result=$this->face($facess);
             dd($result);
             if($result->status()->description()=="ok"){
