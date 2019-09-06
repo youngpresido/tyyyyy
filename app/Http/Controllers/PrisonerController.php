@@ -186,7 +186,7 @@ $response = $client->addInputs([
                 $this->uploadOne($image, $folder, 'public', $name);
                 $files=$filePath;
                 $prisoner=Prisoner::whereId(1)->first();
-                $face1=env('APP_URL').$prisoner->image;
+                $face1=env('APP_URL')."/uploads/images/segun_1567771035.jpeg";
                 $facess=env('APP_URL')."{$filePath}";
                 // dd($facess);
                 // $result=$this->facesearch($facess);   
