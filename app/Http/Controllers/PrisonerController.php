@@ -94,7 +94,7 @@ class PrisonerController extends Controller
             'marital_status'=>$request->marital_status,
             'date_of_birth'=>$request->date_of_birth,
             'sex'=>$request->sex,
-            'ethnicity'=>$request->esthnicity,
+            'ethnicity'=>$request->ethnicity,
             'height'=>$request->height,
             'weight'=>$request->weight,
             'place_of_birth'=>$request->place_of_birth,
