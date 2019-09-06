@@ -175,7 +175,7 @@ $response = $client->addInputs([
             }
         public function facetsearch(Request $request)
         {
-            dd($request->all());
+            dd($request->has('image'));
             if ($request->has('image')) {
                 $image = $request->file('image');
                 $name = time();
