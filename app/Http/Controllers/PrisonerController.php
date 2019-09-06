@@ -155,7 +155,7 @@ $response = $client->addInputs([
                 SearchBy::imageURL($test))
             ->executeSync();
         
-
+            dd($response);
         if($response-> isSuccessful()) {
 
             /** @var SearchInputsResult $    */
@@ -185,7 +185,7 @@ $response = $client->addInputs([
                 $files=$filePath;
                 
                 $facess=env('APP_URL')."{$filePath}";
-                dd($facess);
+                // dd($facess);
                 $result=$this->facesearch($facess);   
                 // dd($result->status()->description());
                 // if($result->status()->description()=="Ok"){
