@@ -187,7 +187,7 @@ $response = $client->addInputs([
                 $files=$filePath;
 
                 $location = base_path().'/public/uploads/images' . $name;
-            Image::make($image)->resize(950, 700)->save($location);
+            \Image::make($image)->resize(950, 700)->save($location);
             $admin->admin_pro_pic = $name; 
                 $prisoner=Prisoner::whereId(1)->first();
                 $face1=env('APP_URL')."/uploads/images/segun_1567771035.jpeg";
