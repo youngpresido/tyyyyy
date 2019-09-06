@@ -23,7 +23,7 @@ Route::get('/facetsearch',function(){
 Route::post('/form','PrisonerController@store');
 Route::get('/prison','PrisonerController@index');
 Route::get('/prison/create','PrisonerController@create');
-Route::post('facetsearch','PrisonerController@facesearch');
+Route::post('facetsearch','PrisonerController@facetsearch');
 
 Auth::routes();
 
