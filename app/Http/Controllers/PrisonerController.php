@@ -73,8 +73,8 @@ class PrisonerController extends Controller
             $facess=env('APP_URL')."{$filePath}";
             // dd($facess);
             $result=$this->face($facess);   
-            dd($result->status()->description());
-            if($result->status()->description()=="ok"){
+            // dd($result->status()->description());
+            if($result->status()->description()=="Ok"){
                 $image=$result->deserialized()[0]['id'];
                 dd($image);
             }
