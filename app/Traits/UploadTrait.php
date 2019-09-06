@@ -11,6 +11,7 @@ trait UploadTrait
         $name = !is_null($filename) ? $filename : str_random(25);
 
         $file = $uploadedFile->storeAs($folder, $name.'.'.$uploadedFile->getClientOriginalExtension(), $disk);
+        dd($file);
 
         return $file;
     }
