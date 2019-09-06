@@ -48,6 +48,7 @@ class CreatePrisonersTable extends Migration
             $table->string('personnel');
             $table->string('finger_print')->nullable();
             $table->string('image')->nullable();
+            $table->string('image_id')->nullable();
             $table->timestamps();
         });
     }

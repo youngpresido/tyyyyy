@@ -76,7 +76,7 @@ class PrisonerController extends Controller
             // dd($result->status()->description());
             if($result->status()->description()=="Ok"){
                 $image=$result->get()[0]->id();
-                dd($image);
+                // dd($image);
             }
         }
 
@@ -113,10 +113,11 @@ class PrisonerController extends Controller
             'weapon'=>$request->weapon,
             'personnel'=>$request->personnel,
             'finger_print'=>$request->fingerprint,
-            'image'=>$image
+            'image_id'=>$image,
+            'image'=>$filepath
         ]);
         if($prisoner->save()){
-            return;
+            return "saved successfully";
         }
     }
     
