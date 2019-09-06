@@ -73,7 +73,7 @@ class PrisonerController extends Controller
             $facess=env('APP_URL')."{$filePath}";
             // dd($facess);
             $result=$this->face($facess);
-            dd($result);
+            // dd($result);
             if($result->status()->description()=="ok"){
                 $image=$result->inputs();
                 dd($image);
@@ -134,7 +134,7 @@ $response = $client->addInputs([
         //  dd($response-> isSuccessful());
         if ($response-> isSuccessful()) {
             // echo "Response is successful.\n";
-            dd($response->isSuccessful());
+            // dd($response->isSuccessful());
             return $response;
         } else {
             echo "Response is not successful. Reason: \n";
