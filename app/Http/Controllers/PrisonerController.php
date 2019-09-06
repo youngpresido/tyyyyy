@@ -73,7 +73,7 @@ class PrisonerController extends Controller
             $facess=env('APP_URL')."{$filePath}";
             // dd($facess);
             $result=$this->face($facess);
-            // dd($result);
+            dd($result);
             if($result->status()->description()=="ok"){
                 $image=$result->inputs();
                 dd($image);
