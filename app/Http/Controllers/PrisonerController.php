@@ -64,12 +64,14 @@ class PrisonerController extends Controller
             'image'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         $image="";
+        $files="";
         if ($request->has('image')) {
             $image = $request->file('image');
             $name = str_slug($request->first_name).'_'.time();
             $folder = '/uploads/images/';
             $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
             $this->uploadOne($image, $folder, 'public', $name);
+            $files=$filePath;
             $facess=env('APP_URL')."{$filePath}";
             // dd($facess);
             $result=$this->face($facess);   
@@ -114,7 +116,7 @@ class PrisonerController extends Controller
             'personnel'=>$request->personnel,
             'finger_print'=>$request->fingerprint,
             'image_id'=>$image,
-            'image'=>$filepath
+            'image'=>$files
         ]);
         if($prisoner->save()){
             return "saved successfully";
