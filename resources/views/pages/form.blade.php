@@ -427,7 +427,7 @@
             <div id="vid-controls"> -->
 <video id="video" width="300" height="200" autoplay="true"></video>
       <input id="vid-take" type="button" value="Take Photo"/>
-      <input id="vid" type="button" value="Upload Photo"/>
+      <!-- <input id="vid" type="button" value="Upload Photo"/> -->
       <!-- <input type="file" accept="image/*;capture=camera"> -->
       <div id="vid-canvas" style="width:300px; height:300px; border:20px solid grey;"></div><hr/>
     </div>
@@ -508,6 +508,12 @@ window.addEventListener("load", function(){
       anchor.download = "webcam.png";
       anchor.innerHTML = "Click to download";
       canvas.innerHTML = "";
+      var anchors = document.createElement("a");
+      anchors.href = draw.toDataURL("image/png");
+      anchors.download = "webcam.png";
+      anchors.innerHTML = "Click to download";
+      canvas.innerHTML = "";
+        canvas.appendChild(anchors);
         canvas.appendChild(anchor);
 
     //   upload.style.display='block';
