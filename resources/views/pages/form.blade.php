@@ -391,7 +391,7 @@
             </span>
             @enderror
     <div>
-        if you don't have a picture, click <a href="#myModal" class="btn btn-lg btn-primary" data-toggle="modal">here</a>to take a picture
+        if you don't have a picture, click <a href="#myModal" data-toggle="modal">here</a>to take a picture
     </div>
       </div>
       <div class="item">
