@@ -424,8 +424,8 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-            <div id="vid-controls"> -->
-<video id="video" width="300" height="200" autoplay="true"></video>
+            <div id="vid-controls">
+<video id="video" width="360" height="360" autoplay="true"></video>
       <input id="vid-take" type="button" value="Take Photo"/>
       <!-- <input id="vid" type="button" value="Upload Photo"/> -->
       <!-- <input type="file" accept="image/*;capture=camera"> -->
