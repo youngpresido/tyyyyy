@@ -429,7 +429,7 @@
       <input id="vid-take" type="button" value="Take Photo"/>
       <!-- <input id="vid" type="button" value="Upload Photo"/> -->
       <!-- <input type="file" accept="image/*;capture=camera"> -->
-      <div id="vid-canvas" style="width:300px; height:300px; border:20px solid grey;"></div><hr/>
+      <div id="vid-canvas" style="width:500px; height:500px; border:20px solid grey;"></div><hr/>
     </div>
             </div>
             <div class="modal-footer">
@@ -494,7 +494,7 @@ window.addEventListener("load", function(){
       draw.width = video.videoWidth;
       draw.height = video.videoHeight;
       var context2D = draw.getContext("2d");
-      context2D.drawImage(video, 0, 0, draw.width,draw.height);
+      context2D.drawImage(video, 0, 0, 460,460);
       // Output as file
     //   console.log(video.videoWidth);
   
