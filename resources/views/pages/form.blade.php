@@ -428,7 +428,7 @@
 <video id="video" width="300" height="200" autoplay="true"></video>
       <input id="vid-take" type="button" value="Take Photo"/>
       <input id="vid" type="button" value="Upload Photo"/>
-      <input type="file" accept="image/*;capture=camera">
+      <!-- <input type="file" accept="image/*;capture=camera"> -->
       <div id="vid-canvas" style="width:300px; height:300px; border:20px solid grey;"></div><hr/>
     </div>
             </div>
@@ -510,8 +510,8 @@ window.addEventListener("load", function(){
       canvas.innerHTML = "";
         canvas.appendChild(anchor);
 
-      upload.style.display='block';
-      console.log(canvas);
+    //   upload.style.display='block';
+    //   console.log(canvas);
     });
   })
   .catch(function(err) {
