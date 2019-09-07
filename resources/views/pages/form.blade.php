@@ -481,10 +481,7 @@ window.addEventListener("load", function(){
 
   // [2] ASK FOR USER PERMISSION TO ACCESS CAMERA
   // WILL FAIL IF NO CAMERA IS ATTACHED TO COMPUTER
-  navigator.mediaDevices.getUserMedia({ video : {
-        width: { min: 260, ideal: 260, max: 260 },
-        height: { min: 260, ideal: 260, max: 260 },
-    } })
+  navigator.mediaDevices.getUserMedia({ video : true })
   .then(function(stream) {
     // [3] SHOW VIDEO STREAM ON VIDEO TAG
     video.srcObject = stream;
@@ -497,7 +494,7 @@ window.addEventListener("load", function(){
       draw.width = video.videoWidth;
       draw.height = video.videoHeight;
       var context2D = draw.getContext("2d");
-      context2D.drawImage(video, 0, 0, 260,260);
+      context2D.drawImage(video, 0, 0, draw.width,draw.height);
       // Output as file
     //   console.log(video.videoWidth);
   
