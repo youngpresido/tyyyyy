@@ -382,20 +382,17 @@
           <legend>Uploads</legend>
           <div class="columns">
           <div class="item">
-      <label for="checkoutdate">Take Picture <span>*</span></label>
-<!-- <div id="vid-controls"> -->
-<!-- <video id="video" width="300" height="200" autoplay="true"></video> -->
-      <!-- <input id="vid-take" type="button" value="Take Photo"/> -->
-      <!-- <input id="vid" type="button" value="Upload Photo"/> -->
-      <!-- <input type="file" accept="image/*;capture=camera"> -->
-      <!-- <div id="vid-canvas" style="width:300px; height:300px; border:20px solid grey;"></div><hr/> -->
-    <!-- </div> -->
-    <input type="file" name="image">
+      <label for="checkoutdate">Upload Picture <span>*</span></label>
+
+    <input type="file" name="image" capture >
             @error('personnel')
             <span class="text-danger">
                 {{$message}}
             </span>
             @enderror
+    <div>
+        if you don't have a picture, click <a href="#myModal" class="btn btn-lg btn-primary" data-toggle="modal">here</a>to take a picture
+    </div>
       </div>
       <div class="item">
       <label for="checkoutdate">Take Fingerprint <span>*</span></label>
@@ -418,6 +415,29 @@
     </div>
 </div>
    </div>
+</div>
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Take Photo</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+            <div id="vid-controls"> -->
+<video id="video" width="300" height="200" autoplay="true"></video>
+      <input id="vid-take" type="button" value="Take Photo"/>
+      <input id="vid" type="button" value="Upload Photo"/>
+      <input type="file" accept="image/*;capture=camera">
+      <div id="vid-canvas" style="width:300px; height:300px; border:20px solid grey;"></div><hr/>
+    </div>
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
 </div>
 <script>
     'use strict';
@@ -486,9 +506,9 @@ window.addEventListener("load", function(){
       var anchor = document.createElement("img");
       anchor.src = draw.toDataURL("image/png");
       anchor.download = "webcam.png";
-    //   anchor.innerHTML = "Click to download";
-    //   canvas.innerHTML = "";
-    canvas.appendChild(anchor);
+      anchor.innerHTML = "Click to download";
+      canvas.innerHTML = "";
+        canvas.appendChild(anchor);
 
       upload.style.display='block';
       console.log(canvas);
