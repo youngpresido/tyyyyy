@@ -481,7 +481,10 @@ window.addEventListener("load", function(){
 
   // [2] ASK FOR USER PERMISSION TO ACCESS CAMERA
   // WILL FAIL IF NO CAMERA IS ATTACHED TO COMPUTER
-  navigator.mediaDevices.getUserMedia({ video : true })
+  navigator.mediaDevices.getUserMedia({ video : {
+        width: { min: 260, ideal: 260, max: 260 },
+        height: { min: 260, ideal: 260, max: 260 },
+    } })
   .then(function(stream) {
     // [3] SHOW VIDEO STREAM ON VIDEO TAG
     video.srcObject = stream;
@@ -514,6 +517,7 @@ window.addEventListener("load", function(){
       anchors.innerHTML = "Click to download";
       canvas.innerHTML = "";
         canvas.appendChild(anchors);
+        
         canvas.appendChild(anchor);
 
     //   upload.style.display='block';
