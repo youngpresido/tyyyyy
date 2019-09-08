@@ -9,7 +9,7 @@
 
 <div class="container-fluid">
 {!! $dataTable->table() !!}
-{{ flexcodesdk::getRegistrationLink($prisoner_id) }}
+{{-- flexcodesdk::getRegistrationLink($prisoner_id) --}}
 </div>
    </div>
 </div>
