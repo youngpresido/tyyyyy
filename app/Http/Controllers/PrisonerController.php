@@ -200,7 +200,21 @@ $response = $client->addInputs([
                 //     $image=$result->get()[0]->id();
                 //     // dd($image);
                 // }
-                $result=$this->facex($face1,$facess);
+                $prisoner_images=Prisoner::all();
+                $myImage="";
+                foreach($prisoner_images as $prisoner_image){
+                    $result=$this->facex($face1,env('APP_URL').$prisoner_image->image);
+                    if($result->confidence>=0.6){
+                        $myImage=$prisoner_image->id;
+                        break;
+                    }
+                }
+                if($myImage!=""){
+                    $myResult=Prisoner::whereId($myImage)->first();
+                    return $myResult;
+                }
+                return "no account for this person";
+                
             }   
         }
         public function facex($m1,$m2)
