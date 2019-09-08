@@ -12,7 +12,7 @@ use Clarifai\DTOs\Searches\SearchBy;
 use Clarifai\DTOs\Searches\SearchInputsResult;
 use App\Traits\UploadTrait;
 use GuzzleHttp\Client as GuzzleClient;
-use Intervention\Image\Facades\Image as Image;
+// use Intervention\Image\Facades\Image as Image;
 class PrisonerController extends Controller
 {
     use UploadTrait;
@@ -187,8 +187,8 @@ $response = $client->addInputs([
                 $this->uploadOne($image, $folder, 'public', $name);
                 $files=$filePath;
 
-                $location = base_path().'/public/uploads/images' . $name;
-            Image::make($image)->resize(950, 700)->save($location);
+                // $location = base_path().'/public/uploads/images' . $name;
+            // Image::make($image)->resize(950, 700)->save($location);
             // $admin->admin_pro_pic = $name; 
                 $prisoner=Prisoner::whereId(1)->first();
                 $face1=env('APP_URL')."/uploads/images/segun_1567771035.jpeg";
@@ -203,7 +203,7 @@ $response = $client->addInputs([
                 $prisoner_images=Prisoner::all();
                 $myImage="";
                 foreach($prisoner_images as $prisoner_image){
-                    $result=$this->facex($face1,env('APP_URL').$prisoner_image->image);
+                    $result=$this->facex($facess,env('APP_URL').$prisoner_image->image);
                     if($result->confidence>=0.6){
                         $myImage=$prisoner_image->id;
                         break;
