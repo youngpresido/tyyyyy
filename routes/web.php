@@ -17,6 +17,9 @@ Route::get('/', function () {
 Route::get('/form',function(){
     return view('pages.form');
 });
+Route::get('/prison/{id}',function(){
+    return view('pages.prisonerdetails');
+});
 Route::get('/facetsearch',function(){
     return view('pages.facesearch');
 });
