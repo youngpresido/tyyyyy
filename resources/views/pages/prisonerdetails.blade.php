@@ -11,7 +11,7 @@
     <form method="post" enctype="multipart/form-data">
         @csrf
       <div class="banner">
-        <h1>{{$prisoner->first_name or " "}} {{$prisoner->last_name or " "}}</h1>
+        <h1>{{" "}} {{" "}}</h1>
       </div>
       <br/>
     
@@ -22,7 +22,7 @@
         <div class="item">
 
             <div>Recording Station</div>
-            <div>{{$prisoner->station or " "}}</div>
+            <div>{{" "}}</div>
           <div class="item">
             <label for="fname">Case Number<span>*</span></label>
             <input id="fname" type="text" name="case_number" value="{{old('case_number')}}"/>
