@@ -8,6 +8,15 @@
    <div id="content-wrapper">
 
 <div class="container-fluid">
+   <div class="row">
+      <div class="col-6">
+         <a href="" class="btn btn-lg btn-success">Search with biometric</a>
+
+      </div>
+      <div class="col-6">
+      <a href="{{URL('/facetsearch')}}" class="btn btn-lg btn-success">Search with facial recognition</a>
+      </div>
+   </div>
 {!! $dataTable->table() !!}
 {{-- flexcodesdk::getRegistrationLink($prisoner_id) --}}
 </div>
