@@ -18,7 +18,11 @@ Route::get('/form',function(){
     return view('pages.form');
 });
 Route::get('/prison/{id}',function(){
-    $prisoner=[];
+    $prisoner=[
+        "first_name"=>"",
+        "last_name"=>"",
+        "station"=>""
+    ];
     return view('pages.prisonerdetails',compact('prisoner'));
 });
 Route::get('/facetsearch',function(){
