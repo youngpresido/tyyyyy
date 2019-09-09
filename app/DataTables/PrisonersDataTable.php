@@ -79,7 +79,7 @@ class PrisonersDataTable extends DataTable
         'ethnicity',
         'date_of_birth',
          'created_at',
-         'personnel_in_charge'
+         'personnel'
         ];
     }
 
