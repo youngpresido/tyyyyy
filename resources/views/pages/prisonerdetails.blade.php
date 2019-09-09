@@ -23,11 +23,11 @@
         <div class="item">
             <label for="lname">Picture<span></span></label>
             <?php
-            $t=env('APP_URL');
-            dd($t);
+            $t=env('APP_URL')."/";
+            
             ?>
             {{dd()}}
-            <img src="{{$prisoner->image}}"/>
+            <img src="{{$t.$prisoner->image}}"/>
           </div>
         <div class="item">
             <label for="lname">Station<span></span></label>
