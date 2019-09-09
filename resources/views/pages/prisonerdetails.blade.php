@@ -22,6 +22,7 @@
         <div class="columns">
         <div class="item">
             <label for="lname">Picture<span></span></label>
+            {{dd(env('APP_URL')/$prisoner->image)}}
             <img src="{{env('APP_URL')/$prisoner->image}}"/>
           </div>
         <div class="item">
