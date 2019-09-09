@@ -77,7 +77,11 @@ class PrisonerController extends Controller
             $files=$filePath;
             $facess=env('APP_URL')."{$filePath}";
             // dd($facess);
-            $result=$this->kairosenrol($facess,"{$request->firstname}{uniqid()}");   
+            $sc="{$request->firstname}".uniqid();
+            // dd($sc);
+            // dd($facess);
+            $result=$this->addfacetoken($facess);
+            // $result=$this->kairosenrol($facess,$sc);   
             // dd($result->status()->description());
             // if($result->status()->description()=="Ok"){
             //     $image=$result->get()[0]->id();
@@ -190,7 +194,7 @@ $response = $client->addInputs([
                 // $location = base_path().'/public/uploads/images' . $name;
             // Image::make($image)->resize(950, 700)->save($location);
             // $admin->admin_pro_pic = $name; 
-                $prisoner=Prisoner::whereId(1)->first();
+                // $prisoner=Prisoner::whereId(1)->first();
                 // $face1=env('APP_URL')."/uploads/images/segun_1567771035.jpeg";
                 $facess=env('APP_URL')."{$filePath}";
                 $result=$this->kairosearch($facess);
@@ -357,7 +361,7 @@ if ($err) {
                 "gallery_name" : '.$myWork.',
                 "subject_id":'.$name.'
             }';
-            $r = $client->request('POST', 'http://www.api.kairos.com/enroll', [
+            $r = $client->request('POST', 'http://api.kairos.com/enroll', [
                 'body' => $body
             ]);
             $response = $r->getBody()->getContents();
@@ -381,7 +385,85 @@ if ($err) {
                 "gallery_name" : '.$myWork.',
         
             }';
-            $r = $client->request('POST', 'http://www.api.kairos.com/recognize', [
+            $r = $client->request('POST', 'http://api.kairos.com/recognize', [
+                'body' => $body
+            ]);
+            $response = $r->getBody()->getContents();
+            dd($response);
+        }
+        public function detectface($url)
+        {
+            $headers = [
+                'Content-Type' => 'application/json',
+            ];
+            $client = new GuzzleClient([
+                'headers' => $headers
+            ]);
+            $myWork='myWork';
+
+            $body = '{
+                "api_key":"md-UGvEKzPVwzYNwWkGXMMKRZoVl5dVc",
+                "api_secret":"i6aysWk3H2h6LNgAqJhhar7SBEjUz7NC",
+                "image_url" : '.$url.',
+
+        
+            }';
+            $r = $client->request('POST', 'https://api-us.faceplusplus.com/facepp/v3/detect', [
+                'body' => $body
+            ]);
+            $response = $r->getBody()->getContents();
+            dd($response);
+
+
+        }
+
+        public function addfacetoken($urls)
+        {
+            $token=$this->detectface($urls);
+            $headers = [
+                'Content-Type' => 'application/json',
+            ];
+            $client = new GuzzleClient([
+                'headers' => $headers
+            ]);
+            $myWork='myWork';
+
+            $body = '{
+                "api_key":"md-UGvEKzPVwzYNwWkGXMMKRZoVl5dVc",
+                "api_secret":"i6aysWk3H2h6LNgAqJhhar7SBEjUz7NC",
+                "face_tokens" : '.$token.',
+                "faceset_token":"2812bbd19aa1c8c9dc2aa0f018c336c6",
+
+        
+            }';
+            $r = $client->request('POST', 'https://api-us.faceplusplus.com/facepp/v3/faceset/addface', [
+                'body' => $body
+            ]);
+            $response = $r->getBody()->getContents();
+            dd($response);
+
+
+        }
+        public function faceplussearch($url)
+        {
+            // $token=$this->detectface($urls);
+            $headers = [
+                'Content-Type' => 'application/json',
+            ];
+            $client = new GuzzleClient([
+                'headers' => $headers
+            ]);
+            $myWork='myWork';
+
+            $body = '{
+                "api_key":"md-UGvEKzPVwzYNwWkGXMMKRZoVl5dVc",
+                "api_secret":"i6aysWk3H2h6LNgAqJhhar7SBEjUz7NC",
+                "image_url" : '.$url.',
+                "faceset_token":"2812bbd19aa1c8c9dc2aa0f018c336c6",
+
+        
+            }';
+            $r = $client->request('POST', 'https://api-us.faceplusplus.com/facepp/v3/search', [
                 'body' => $body
             ]);
             $response = $r->getBody()->getContents();
