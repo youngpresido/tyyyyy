@@ -22,7 +22,11 @@
         <div class="columns">
         <div class="item">
             <label for="lname">Picture<span></span></label>
-            {{dd($prisoner->image)}}
+            <?php
+            $t=env('APP_URL');
+            dd($t);
+            ?>
+            {{dd()}}
             <img src="{{$prisoner->image}}"/>
           </div>
         <div class="item">
