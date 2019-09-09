@@ -77,12 +77,12 @@ class PrisonerController extends Controller
             $files=$filePath;
             $facess=env('APP_URL')."{$filePath}";
             // dd($facess);
-            $result=$this->face($facess);   
+            $result=$this->kairosenrol($facess,"{$request->firstname}{uniqid()}");   
             // dd($result->status()->description());
-            if($result->status()->description()=="Ok"){
-                $image=$result->get()[0]->id();
-                // dd($image);
-            }
+            // if($result->status()->description()=="Ok"){
+            //     $image=$result->get()[0]->id();
+            //     // dd($image);
+            // }
         }
 
         $prisoner=new Prisoner([
@@ -191,8 +191,9 @@ $response = $client->addInputs([
             // Image::make($image)->resize(950, 700)->save($location);
             // $admin->admin_pro_pic = $name; 
                 $prisoner=Prisoner::whereId(1)->first();
-                $face1=env('APP_URL')."/uploads/images/segun_1567771035.jpeg";
+                // $face1=env('APP_URL')."/uploads/images/segun_1567771035.jpeg";
                 $facess=env('APP_URL')."{$filePath}";
+                $result=$this->kairosearch($facess);
                 // dd($facess);
                 // $result=$this->facesearch($facess);   
                 // dd($result->status()->description());
@@ -200,20 +201,20 @@ $response = $client->addInputs([
                 //     $image=$result->get()[0]->id();
                 //     // dd($image);
                 // }
-                $prisoner_images=Prisoner::all();
-                $myImage="";
-                foreach($prisoner_images as $prisoner_image){
-                    $result=$this->facex($facess,env('APP_URL').$prisoner_image->image);
-                    if($result->confidence>=0.6){
-                        $myImage=$prisoner_image->id;
-                        break;
-                    }
-                }
-                if($myImage!=""){
-                    $myResult=Prisoner::whereId($myImage)->first();
-                    return $myResult;
-                }
-                return "no account for this person";
+                // $prisoner_images=Prisoner::all();
+            //     $myImage="";
+            //     foreach($prisoner_images as $prisoner_image){
+            //         $result=$this->facex($facess,env('APP_URL').$prisoner_image->image);
+            //         if($result->confidence>=0.6){
+            //             $myImage=$prisoner_image->id;
+            //             break;
+            //         }
+            //     }
+            //     if($myImage!=""){
+            //         $myResult=Prisoner::whereId($myImage)->first();
+            //         return $myResult;
+            //     }
+            //     return "no account for this person";
                 
             }   
         }
@@ -334,5 +335,56 @@ if ($err) {
 } else {
 	echo $response;
 }
+        }
+
+
+
+        public function kairosenrol($m1,$name)
+        {
+            $headers = [
+                'Content-Type' => 'application/json',
+                'app_id'=> "e28ce17f",
+                'app_key'=> "dffd35811459f63b747e3ed15eaf8efb"
+
+            ];
+            $client = new GuzzleClient([
+                'headers' => $headers
+            ]);
+            $myWork='myWork';
+
+            $body = '{
+                "image" : '.$m1.',
+                "gallery_name" : '.$myWork.',
+                "subject_id":'.$name.'
+            }';
+            $r = $client->request('POST', 'http://www.api.kairos.com/enroll', [
+                'body' => $body
+            ]);
+            $response = $r->getBody()->getContents();
+            dd($response);
+        }
+        public function kairosearch($url)
+        {
+            $headers = [
+                'Content-Type' => 'application/json',
+                'app_id'=> "e28ce17f",
+                'app_key'=> "dffd35811459f63b747e3ed15eaf8efb"
+
+            ];
+            $client = new GuzzleClient([
+                'headers' => $headers
+            ]);
+            $myWork='myWork';
+
+            $body = '{
+                "image" : '.$url.',
+                "gallery_name" : '.$myWork.',
+        
+            }';
+            $r = $client->request('POST', 'http://www.api.kairos.com/recognize', [
+                'body' => $body
+            ]);
+            $response = $r->getBody()->getContents();
+            dd($response);
         }
 }
