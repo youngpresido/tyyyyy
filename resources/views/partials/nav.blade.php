@@ -6,7 +6,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('newrecord'}}">
+        <a class="nav-link" href="{{route('newrecord')}}">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Add new records</span></a>
       </li>
