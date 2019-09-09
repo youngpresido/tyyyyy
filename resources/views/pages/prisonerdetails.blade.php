@@ -23,7 +23,7 @@
         <div class="item">
             <label for="lname">Picture<span></span></label>
             <?php
-            $t=env('APP_URL')."/";
+            $t=env('APP_URL');
             
             ?>
           
