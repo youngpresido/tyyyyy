@@ -26,7 +26,7 @@
             $t=env('APP_URL')."/";
             
             ?>
-            {{dd()}}
+          
             <img src="{{$t.$prisoner->image}}"/>
           </div>
         <div class="item">
