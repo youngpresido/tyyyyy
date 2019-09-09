@@ -17,7 +17,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
         <a class="dropdown-item" href="{{route('admin')}}">Dashboard</a>
-          <a class="dropdown-item" href="">View all records</a>
+        <a class="dropdown-item" href="{{route('allprisoner')}}">View all records</a>
           <a class="dropdown-item" href="">Reports and analysis</a>
           
        
