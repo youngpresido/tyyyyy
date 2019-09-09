@@ -21,7 +21,7 @@ Route::get('/adt/signout',function(){
     $id=Auth::user()->id;
     Auth::logout($id);
     return redirect('/');
-});
+})->name('adt.signout');
 Route::get('/prison/{id}',function($id){
     $prisoner=\App\Prisoner::whereId($id)->first();
     return view('pages.prisonerdetails',compact('prisoner'));
