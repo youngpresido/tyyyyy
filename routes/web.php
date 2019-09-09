@@ -11,25 +11,26 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
+Route::get('/adt', function () {
     return view('pages.index');
-});
+})->name('admin');
 Route::get('/form',function(){
     return view('pages.form');
+})->name('newrecord');
+Route('/adt/signout',function(){
+    $id=Auth::user()->id;
+    Auth::logout($id);
+    return redirect('/');
 });
-Route::get('/prison/{id}',function(){
-    $prisoner=[
-        "first_name"=>"",
-        "last_name"=>"",
-        "station"=>""
-    ];
+Route::get('/prison/{id}',function($id){
+    $prisoner=\App\Prisoner::whereId($id)->first();
     return view('pages.prisonerdetails',compact('prisoner'));
 });
 Route::get('/facetsearch',function(){
     return view('pages.facesearch');
 });
 Route::post('/form','PrisonerController@store');
-Route::get('/prison','PrisonerController@index');
+Route::get('/prison','PrisonerController@index')->name('allprisoner');
 Route::get('/prison/create','PrisonerController@create');
 Route::post('facetsearch','PrisonerController@facetsearch');
 

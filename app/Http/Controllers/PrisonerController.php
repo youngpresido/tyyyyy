@@ -238,4 +238,101 @@ $response = $client->addInputs([
             $response = $r->getBody()->getContents();
             dd($response);
         }
+
+
+        public function addperson($person){
+            $curl = curl_init();
+
+curl_setopt_array($curl, array(
+	CURLOPT_URL => "https://api.luxand.cloud/subject",
+	CURLOPT_RETURNTRANSFER => true,
+	CURLOPT_ENCODING => "",
+	CURLOPT_MAXREDIRS => 10,
+	CURLOPT_TIMEOUT => 30,
+	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	CURLOPT_CUSTOMREQUEST => "POST",
+	CURLOPT_POSTFIELDS => [ "name" => $person], 
+	CURLOPT_HTTPHEADER => array(
+		"token: 129e7db4f08940a2873d7b25842f20ab"
+	),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+	echo "cURL Error #:" . $err;
+} else {
+	echo $response;
+}
+        }
+
+
+
+        public function addface($id,$url)
+        {
+            $curl = curl_init();
+
+curl_setopt_array($curl, array(
+	CURLOPT_URL => "https://api.luxand.cloud/subject/".$id,
+	CURLOPT_RETURNTRANSFER => true,
+	CURLOPT_ENCODING => "",
+	CURLOPT_MAXREDIRS => 10,
+	CURLOPT_TIMEOUT => 30,
+	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	CURLOPT_CUSTOMREQUEST => "POST",
+	// CURLOPT_POSTFIELDS => [ "photo" => curl_file_create("photo.jpg")], 
+	// or use URL
+	CURLOPT_POSTFIELDS => [ "photo" => $url ], 
+	CURLOPT_HTTPHEADER => array(
+		"token: 129e7db4f08940a2873d7b25842f20ab"
+	),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+	echo "cURL Error #:" . $err;
+} else {
+	echo $response;
+}
+        }
+
+
+        public function verifyface($id,$url){
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+	CURLOPT_URL => "https://api.luxand.cloud/photo/verify/".$id,
+	CURLOPT_RETURNTRANSFER => true,
+	CURLOPT_ENCODING => "",
+	CURLOPT_MAXREDIRS => 10,
+	CURLOPT_TIMEOUT => 30,
+	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	CURLOPT_CUSTOMREQUEST => "POST",
+	// CURLOPT_POSTFIELDS => [ "photo" => curl_file_create("photo.jpg")], 
+	// or use URL
+	CURLOPT_POSTFIELDS => [ "photo" => $url ], 
+	CURLOPT_HTTPHEADER => array(
+		"token: 129e7db4f08940a2873d7b25842f20ab"
+	),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+	echo "cURL Error #:" . $err;
+} else {
+	echo $response;
+}
+        }
 }
