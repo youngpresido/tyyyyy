@@ -17,7 +17,7 @@ Route::get('/adt', function () {
 Route::get('/form',function(){
     return view('pages.form');
 })->name('newrecord');
-Route('/adt/signout',function(){
+Route::get('/adt/signout',function(){
     $id=Auth::user()->id;
     Auth::logout($id);
     return redirect('/');
