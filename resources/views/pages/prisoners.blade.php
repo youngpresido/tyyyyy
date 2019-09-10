@@ -13,7 +13,7 @@
          <a href="" class="btn btn-lg btn-success">Search with biometric</a>
 
       </div>
-      <div class="col-6">
+      <div class="col-6" style="margin-left:0;">
       <a href="{{URL('/facetsearch')}}" class="btn btn-lg btn-success">Search with facial recognition</a>
       </div>
    </div>
