@@ -21,7 +21,7 @@
         <thead>
             <tr>
             <th>id</th> 
-        
+            <th>Image</th>
         <th>SOC number</th>
 
 
@@ -34,6 +34,7 @@
         <th>Ethnicity</th>
         <th>Date of Birth</th>
          <th>Personnel</th>
+         
          <th>Actions</th>
             </tr>
         </thead>
@@ -47,6 +48,14 @@
          @foreach($prisoners as $prisoner)
         <tr>
             <td>{{$loop->index+1}}</td>
+            <td>
+            <?php
+            $t=env('APP_URL');
+            
+            ?>
+          
+            <img src="{{$t.$prisoner->image}}" style="width:50px; height:50px;" class="img-circle"/>
+            </td>
             <td>{{$prisoner->soc_number}}</td>
             <td>{{$prisoner->first_name}}</td>
             <td>{{$prisoner->last_name}}</td>
@@ -69,10 +78,7 @@
            
            <span class="glyphicon glyphicon-message"></span> View Details
 </a>   
-<a href="{{route('ki',$prisoner->id)}}" class=" btn btn-primary">
-           
-           <span class="glyphicon glyphicon-message"></span> View Details
-</a>   
+
             <!-- <a href="" class="btn btn-info">
             
             <span class="glyphicon glyphicon-edit"></span> Edit
