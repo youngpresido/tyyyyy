@@ -14,11 +14,11 @@ class flexcodeSDKController extends Controller
     }
     public function ac()
     {
-    	echo env('FLEXCODE_AC') . env('FLEXCODE_SN');
+    	return env('FLEXCODE_AC') . env('FLEXCODE_SN');
     }
     public function register($id)
     {
-    	echo Flexcodesdk::registerUrl($id);
+    	return Flexcodesdk::registerUrl($id);
     }
     public function save(Request $request, $id)
     {
