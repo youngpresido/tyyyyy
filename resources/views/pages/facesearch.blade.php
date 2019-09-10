@@ -17,6 +17,8 @@
 </div>
 <hr>
 <div class="container">
+<div class="row">
+    <div class="col-6">
 @if(isset($prisoner))
 <?php
 $url=env('APP_URL');
@@ -34,6 +36,8 @@ $image=$url.$prisoner_image;
 </div>
 </div>
 @endif
+</div>
+</div>
 </div>
    </div>
 </div>
