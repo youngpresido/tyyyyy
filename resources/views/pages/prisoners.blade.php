@@ -70,10 +70,10 @@
            
            <span class="glyphicon glyphicon-message"></span> View Details
 </a>   
-            <a href="" class="btn btn-info">
+            <!-- <a href="" class="btn btn-info">
             
             <span class="glyphicon glyphicon-edit"></span> Edit
-</a>
+</a> -->
         <!-- <a href="" class=" btn btn-danger">
            
             <span class="glyphicon glyphicon-trash"></span> Delete
