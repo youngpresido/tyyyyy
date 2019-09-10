@@ -455,27 +455,33 @@ if($myResult['faces'][0]['face_token']){
         }
         public function faceplussearch($url)
         {
-            // $token=$this->detectface($urls);
-            $headers = [
-                'Content-Type' => 'application/json',
-            ];
-            $client = new GuzzleClient([
-                'headers' => $headers
-            ]);
-            $myWork='myWork';
 
-            $body = '{
-                "api_key":"md-UGvEKzPVwzYNwWkGXMMKRZoVl5dVc",
-                "api_secret":"i6aysWk3H2h6LNgAqJhhar7SBEjUz7NC",
-                "image_url" : '.$url.',
-                "faceset_token":"2812bbd19aa1c8c9dc2aa0f018c336c6",
+            $data = array(
+                "api_key"=>"md-UGvEKzPVwzYNwWkGXMMKRZoVl5dVc",
+                "api_secret"=>"i6aysWk3H2h6LNgAqJhhar7SBEjUz7NC",
+                "image_url" =>$url,
+                "faceset_token"=>"2812bbd19aa1c8c9dc2aa0f018c336c6",
 
         
-            }';
-            $r = $client->request('POST', 'https://api-us.faceplusplus.com/facepp/v3/search', [
-                'body' => $body
-            ]);
-            $response = $r->getBody()->getContents();
-            dd($response);
+);
+            
+                        
+            $client = new Client();
+$response = $client->post('https://api-us.faceplusplus.com/facepp/v3/search', ['form_params' => $data]);
+
+$result = $response->getBody();
+// while (!$result->eof()) {
+// 	echo $result->read(1024);
+// 	flush();
+// }
+// echo "\n\n";
+$myResult=json_decode((string) $result, true);
+dd($myResult);
+if($myResult['faces'][0]['face_token']){
+    return $myResult['faces'][0]['face_token'];
+}else{
+    return "error";
+}
+  
         }
 }
