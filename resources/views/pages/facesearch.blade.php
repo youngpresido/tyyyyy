@@ -23,7 +23,7 @@ $url=env('APP_URL');
 $prisoner_image=$prisoner->image;
 $image=$url.$prisoner_image;
 ?>
-<div class="card" style="width: 200px;">
+<div class="card">
   <img src="{{$image}}" class="card-img-top" alt="..." style="height:100px;">
   <div class="card-body">
     <h5 class="card-title"><b>Name:</b> {{$prisoner->first_name}} {{$prisoner->last_name}}</h5>
