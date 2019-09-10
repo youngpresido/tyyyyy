@@ -15,7 +15,7 @@
 </div>
 </form>
 <div class="container">
-@if($prisoner)
+@if(isset($prisoner))
 <?php
 $url=env('APP_URL');
 $prisoner_image=$prisoner->image;
