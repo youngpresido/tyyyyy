@@ -31,11 +31,11 @@ Route::get('/facetsearch',function(){
     return view('pages.facesearch');
 });
 Route::post('/form','PrisonerController@store');
-Route::get('/prison','PrisonerController@index')->name('allprisoner');
-Route::get('datatables', 'PrisonersController', [
+// Route::get('/prison','PrisonerController@index')->name('allprisoner');
+Route::get('prison', 'PrisonersController', [
     'anyData'  => 'datatables.data',
     'getIndex' => 'datatables',
-]);
+])->name('allprisoner');
 
 
 Route::get('/prison/create','PrisonerController@create');
