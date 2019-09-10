@@ -21,10 +21,20 @@ class PrisonerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(PrisonersDataTable $dataTable)
+
+    public function getIndex()
     {
-        return $dataTable->render('pages.prisoners');
+        return view('pages.prisoners');
     }
+    // public function index(PrisonersDataTable $dataTable)
+    // {
+    //     return $dataTable->render('pages.prisoners');
+    // }
+
+    public function anyData()
+{
+    return Datatables::of(Prisoner::query())->make(true);
+}
     public function create() {
         $model = Prisoner::query();
     

@@ -27,7 +27,8 @@ class PrisonersDataTable extends DataTable
      */
     public function query(Prisoner $model)
     {
-        return $model->newQuery()->select('id', 
+        return $model->newQuery()->select(
+            'id', 
         
         'soc_number',
 
