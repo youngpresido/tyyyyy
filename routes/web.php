@@ -32,7 +32,7 @@ Route::get('/facetsearch',function(){
 });
 Route::post('/form','PrisonerController@store');
 Route::get('/prison','PrisonerController@index')->name('allprisoner');
-Route::controller('datatables', 'PrisonersController', [
+Route::get('datatables', 'PrisonersController', [
     'anyData'  => 'datatables.data',
     'getIndex' => 'datatables',
 ]);
