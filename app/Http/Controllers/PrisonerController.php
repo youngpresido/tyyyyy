@@ -393,7 +393,7 @@ if ($err) {
         }
         public function detectface($url)
         {
-            dd($url);
+            // dd($url);
             $headers = [
                 'Content-Type' => 'application/json',
             ];
