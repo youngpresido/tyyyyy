@@ -395,17 +395,7 @@
     </div>
       </div>
       <div class="item">
-      <label for="checkoutdate">Take Fingerprint <span>*</span></label>
-
-      <!-- <input id="vid-take" type="button" value="Take Photo"/> -->
-      <!-- <input type="file" accept="image/*;capture=camera"> -->
-      {{ flexcodesdk::getRegistrationLink(1) }}
-            @error('personnel')
-            <span class="text-danger">
-                {{$message}}
-            </span>
-            @enderror
-      </div>
+            </div>
           </div>
       </fieldset>
       <div class="btn-block">

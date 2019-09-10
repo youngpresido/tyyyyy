@@ -136,12 +136,12 @@ class PrisonerController extends Controller
             'outcome'=>$request->outcome,
             'weapon'=>$request->weapon,
             'personnel'=>$request->personnel,
-            'finger_print'=>$request->fingerprint,
             'image_id'=>$image,
             'image'=>$files
         ]);
         if($prisoner->save()){
-            return "saved successfully";
+            $prison=$prisoner->id;
+            return view('pages.fingerprint',compact('prison'));
         }
     }
     

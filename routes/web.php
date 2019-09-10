@@ -10,24 +10,7 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-    Route::get('test', ['uses' => 'flexcodeSDKController@index']);
-    Route::prefix('fingerprints')->group(function () {
-	    Route::get('/', function () {
-	        echo "hello world";
-	    });
-	    Route::get('status', ['uses' => 'flexcodeSDKController@status']);
-	    Route::get('ac', ['uses' => 'flexcodeSDKController@ac']);
-	    
-	    //get fingerprint registration URL
-	    Route::get('register/{id}', ['uses' => 'flexcodeSDKController@register']);
-	    Route::post('register/{id}', ['uses' => 'flexcodeSDKController@save']);
-	    
-	    //verify 
-	    Route::get('verify/{id}', ['uses' => 'flexcodeSDKController@verify']);
-	    Route::post('verify/{id}', ['uses' => 'flexcodeSDKController@saveverify']);
-	});
-
-
+    
 
 
 Route::get('/adt', function () {
