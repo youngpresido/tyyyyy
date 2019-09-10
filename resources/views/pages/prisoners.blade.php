@@ -69,6 +69,10 @@
            
            <span class="glyphicon glyphicon-message"></span> View Details
 </a>   
+<a href="{{route('ki',$prisoner->id)}}" class=" btn btn-primary">
+           
+           <span class="glyphicon glyphicon-message"></span> View Details
+</a>   
             <!-- <a href="" class="btn btn-info">
             
             <span class="glyphicon glyphicon-edit"></span> Edit
