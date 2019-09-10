@@ -410,7 +410,11 @@ while (!$result->eof()) {
 }
 echo "\n\n";
 $myResult=json_decode((string) $result, true);
-dd($myResult['faces'][0]['face_token']);
+if($myResult['faces'][0]['face_token']){
+    return $myResult['faces'][0]['face_token'];
+}else{
+    return "error";
+}
 // dd($result->faces);
             
 
@@ -419,29 +423,39 @@ dd($myResult['faces'][0]['face_token']);
         public function addfacetoken($urls)
         {
             $token=$this->detectface($urls);
-            $headers = [
-                'Content-Type' => 'application/json',
-            ];
-            $client = new GuzzleClient([
-                'headers' => $headers
-            ]);
-            $myWork='myWork';
+            if($token!="error"){
+                $data = array(
+                    "api_key"=>"md-UGvEKzPVwzYNwWkGXMMKRZoVl5dVc",
+                    "api_secret"=>"i6aysWk3H2h6LNgAqJhhar7SBEjUz7NC",
+                    "face_tokens" => $token,
+                    "faceset_token"=>"2812bbd19aa1c8c9dc2aa0f018c336c6",
+                    );
+                    $client = new Client();
+                    $response = $client->post('https://api-us.faceplusplus.com/facepp/v3/faceset/addface', ['form_params' => $data]);
+                    
+                    $result = $response->getBody();
+                    while (!$result->eof()) {
+                        echo $result->read(1024);
+                        flush();
+                    }
+                    echo "\n\n";
+                    
+                    $myResult=json_decode((string) $result, true);
+                    dd($myResult);
+                    if($myResult['faces'][0]['face_token']){
+                        return $myResult['faces'][0]['face_token'];
+                    }else{
+                        return "error";
+                    }
+            }else{
+                return "error";
+            }
+            
+            
+                        
+          
 
-            $body = '{
-                "api_key":"md-UGvEKzPVwzYNwWkGXMMKRZoVl5dVc",
-                "api_secret":"i6aysWk3H2h6LNgAqJhhar7SBEjUz7NC",
-                "face_tokens" : '.$token.',
-                "faceset_token":"2812bbd19aa1c8c9dc2aa0f018c336c6",
-
-        
-            }';
-            $r = $client->request('POST', 'https://api-us.faceplusplus.com/facepp/v3/faceset/addface', [
-                'body' => $body
-            ]);
-            $response = $r->getBody()->getContents();
-            dd($response);
-
-
+  
         }
         public function faceplussearch($url)
         {
