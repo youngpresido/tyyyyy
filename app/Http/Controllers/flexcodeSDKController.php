@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
-use App\Fingerprint\Fleskcodesdk;
+use App\Fingerprint\Flexcodesdk;
 use Config;
 use Event;
 class flexcodeSDKController extends Controller
