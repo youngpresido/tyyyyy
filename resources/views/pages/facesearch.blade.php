@@ -25,8 +25,7 @@
 <div class="row">
     <div class="col-6" style="border:0px;">
 @if(isset($prisoner))
-{{var_dump(gettype($prisoner))}}
-@if(is_array($prisoner))
+@if(!is_string($prisoner))
 <?php
 $url=env('APP_URL');
 $prisoner_image=$prisoner->image;
