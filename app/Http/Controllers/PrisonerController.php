@@ -73,20 +73,16 @@ class PrisonerController extends Controller
             $folder = '/uploads/images/';
             $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
             $this->uploadOne($image, $folder, 'public', $name);
-            // dd($this->uploadOne($image, $folder, 'public', $name));
             $files=$filePath;
             $facess=env('APP_URL')."{$filePath}";
-            // dd($facess);
+            
             $sc="{$request->firstname}".uniqid();
-            // dd($sc);
-            // dd($facess);
+            
             $result=$this->addfacetoken($facess);
-            // $result=$this->kairosenrol($facess,$sc);   
-            // dd($result->status()->description());
-            // if($result->status()->description()=="Ok"){
-            //     $image=$result->get()[0]->id();
-            //     // dd($image);
-            // }
+            if($result != "error"){
+                $image=$result;
+            }
+            
         }
 
         $prisoner=new Prisoner([
@@ -441,9 +437,9 @@ if($myResult['faces'][0]['face_token']){
                     echo "\n\n";
                     
                     $myResult=json_decode((string) $result, true);
-                    dd($myResult);
-                    if($myResult['faces'][0]['face_token']){
-                        return $myResult['faces'][0]['face_token'];
+                    // dd($myResult);
+                    if($myResult['faceset_token']){
+                        return $token;
                     }else{
                         return "error";
                     }
