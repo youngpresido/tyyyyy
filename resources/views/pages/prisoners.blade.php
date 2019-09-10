@@ -55,11 +55,11 @@
             <td>{{$prisoner->sex}}</td>
             <td>
             @if($prisoner->ethnicity=="1")
-                  <td>Hausa</td>
+                  Hausa
                @elseif($prisoner->ethnicity=="2")
-               <td>Yoruba</td>
+               Yoruba
                @elseif($prisoner->ethnicity=="3")
-               <td>Igbo</td>
+               Igbo
                @endif
 
             </td>
