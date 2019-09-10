@@ -401,7 +401,7 @@ if ($err) {
             
                         
             $client = new Client();
-$response = $client->post('https://api-us.faceplusplus.com/facepp/v3/detect', ['body' => $data]);
+$response = $client->post('https://api-us.faceplusplus.com/facepp/v3/detect', ['form_params' => $data]);
 
 $result = $response->getBody()->getContents();
 dd($result);
