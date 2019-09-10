@@ -25,7 +25,7 @@ Route::get('/adt/signout',function(){
 Route::get('/prison/{id}',function($id){
     $prisoner=\App\Prisoner::whereId($id)->first();
     return view('pages.prisonerdetails',compact('prisoner'));
-});
+})->name('ki');
 Route::get('/facetsearch',function(){
     return view('pages.facesearch');
 });

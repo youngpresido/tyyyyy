@@ -196,7 +196,7 @@ $response = $client->addInputs([
                 $result=$this->faceplussearch($facess);
                 if($result!="error"){    
                     $prisoner=Prisoner::whereImage_id($result)->first();
-                    dd($prisoner);
+                    return redirect()->back()->with("prisoner",$prisoner);
 
                 }else{
                     return "No face match";
