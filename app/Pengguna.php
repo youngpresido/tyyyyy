@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pengguna extends Model
 {
-    protected $table = 'users';
+    protected $table = 'prisoners';
 
     protected $guarded = [
     	'_token',
