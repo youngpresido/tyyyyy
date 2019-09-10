@@ -462,7 +462,7 @@ $result = $response->getBody();
 // echo "\n\n";
 $myResult=json_decode((string) $result, true);
 dd($myResult);
-if($myResult['results'][0]['face_token']){
+if(!$myResult['faces']){
     return $myResult['results'][0]['face_token'];
 }else{
     return "error";
