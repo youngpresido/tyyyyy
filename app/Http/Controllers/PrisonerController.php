@@ -430,11 +430,11 @@ if($myResult['faces'][0]['face_token']){
                     $response = $client->post('https://api-us.faceplusplus.com/facepp/v3/faceset/addface', ['form_params' => $data]);
                     
                     $result = $response->getBody();
-                    while (!$result->eof()) {
-                        echo $result->read(1024);
-                        flush();
-                    }
-                    echo "\n\n";
+                    // while (!$result->eof()) {
+                    //     echo $result->read(1024);
+                    //     flush();
+                    // }
+                    // echo "\n\n";
                     
                     $myResult=json_decode((string) $result, true);
                     // dd($myResult);
