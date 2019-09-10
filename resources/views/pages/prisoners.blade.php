@@ -31,7 +31,6 @@
         <th>State</th>
         <th>Marital Status</th>
         <th>Sex</th>
-        <th>Ethnicity</th>
         <th>Date of Birth</th>
          <th>Personnel</th>
          
