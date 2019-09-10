@@ -14,6 +14,8 @@
     <input type="submit">
 </div>
 </form>
+</div>
+<hr>
 <div class="container">
 @if(isset($prisoner))
 <?php
@@ -21,7 +23,7 @@ $url=env('APP_URL');
 $prisoner_image=$prisoner->image;
 $image=$url.$prisoner_image;
 ?>
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 10rem;">
   <img src="{{$image}}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">Name: {{$prisoner->first_name}} {{$prisoner->last_name}}</h5>
