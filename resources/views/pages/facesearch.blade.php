@@ -18,7 +18,7 @@
 <hr>
 <div class="container">
 <div class="row">
-    <div class="col-6">
+    <div class="col-6" style="border:0px;">
 @if(isset($prisoner))
 <?php
 $url=env('APP_URL');
