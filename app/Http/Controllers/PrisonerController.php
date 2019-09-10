@@ -193,7 +193,7 @@ $response = $client->addInputs([
                 // $prisoner=Prisoner::whereId(1)->first();
                 // $face1=env('APP_URL')."/uploads/images/segun_1567771035.jpeg";
                 $facess=env('APP_URL')."{$filePath}";
-                $result=$this->kairosearch($facess);
+                $result=$this->faceplussearch($facess);
                 // dd($facess);
                 // $result=$this->facesearch($facess);   
                 // dd($result->status()->description());
