@@ -403,7 +403,7 @@ if ($err) {
             $client = new Client();
 $response = $client->post('https://api-us.faceplusplus.com/facepp/v3/detect', ['form_params' => $data]);
 
-$result = $response->getBody()->getContents();
+$result = $response->getBody();
 while (!$result->eof()) {
 	echo $result->read(1024);
 	flush();
