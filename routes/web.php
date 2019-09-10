@@ -29,6 +29,7 @@ use Illuminate\Http\Request;
 
 
 
+
 Route::get('/adt', function () {
     $prisoners=\App\Prisoner::all();
     return view('pages.index',compact('prisoners'));

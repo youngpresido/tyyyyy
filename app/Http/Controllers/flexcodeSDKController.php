@@ -16,7 +16,7 @@ class flexcodeSDKController extends Controller
     {
     	return env('FLEXCODE_AC') . env('FLEXCODE_SN');
     }
-    public function register($id)
+    public static function register($id)
     {
     	return Flexcodesdk::registerUrl($id);
     }
