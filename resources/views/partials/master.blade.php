@@ -75,16 +75,16 @@
   <script src="{{asset('asset/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
   <!-- Page level plugin JavaScript-->
-  <script src="{{asset('asset/vendor/chart.js/Chart.min.js')}}"></script>
-  <script src="{{asset('asset/vendor/datatables/jquery.dataTables.js')}}"></script>
-  <script src="{{asset('asset/vendor/datatables/dataTables.bootstrap4.js')}}"></script>
+  <!-- <script src="{{asset('asset/vendor/chart.js/Chart.min.js')}}"></script> -->
+  <!-- <script src="{{asset('asset/vendor/datatables/jquery.dataTables.js')}}"></script> -->
+  <!-- <script src="{{asset('asset/vendor/datatables/dataTables.bootstrap4.js')}}"></script> -->
 
   <!-- Custom scripts for all pages-->
   <script src="{{asset('asset/js/sb-admin.min.js')}}"></script>
-  <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+  <!-- <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script> -->
   <!-- Demo scripts for this page-->
-  <script src="{{asset('asset/js/demo/datatables-demo.js')}}"></script>
-  <script src="{{asset('asset/js/demo/chart-area-demo.js') }}"></script>
+  <!-- <script src="{{asset('asset/js/demo/datatables-demo.js')}}"></script> -->
+  <!-- <script src="{{asset('asset/js/demo/chart-area-demo.js') }}"></script> -->
   @stack('scripts')
 </body>
 
