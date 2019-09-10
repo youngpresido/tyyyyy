@@ -26,7 +26,7 @@ $prisoner_image=$prisoner->image;
 $image=$url.$prisoner_image;
 ?>
 <div class="card">
-  <img src="{{$image}}" class="card-img-top" alt="..." style=" width:100px; height:100px;">
+  <img src="{{$image}}" class="card-img-top" alt="..." style="margin:0 auto; width:100px; height:100px;">
   <div class="card-body">
     <h5 class="card-title"><b>Name:</b> {{$prisoner->first_name}} {{$prisoner->last_name}}</h5>
     <p class="card-text"><b>Status:</b>{{$prisoner->outcome}}</p>
