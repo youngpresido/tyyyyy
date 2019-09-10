@@ -25,7 +25,7 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-comments"></i>
                 </div>
-                <div class="mr-5">{{''}} prisoners!</div>
+                <div class="mr-5">{{count($prisoners)}} prisoners!</div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="{{route('allprisoner')}}">
                 <span class="float-left">View Details</span>
@@ -41,7 +41,7 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-list"></i>
                 </div>
-                <div class="mr-5">{{''}} Females</div>
+                <div class="mr-5">{{$prisoners->where('sex','female')->count()}} Females</div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">View Details</span>

@@ -12,7 +12,8 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/adt', function () {
-    return view('pages.index');
+    $prisoners=\App\Prisoner::all();
+    return view('pages.index',compact('prisoners'));
 })->name('admin');
 Route::get('/form',function(){
     return view('pages.form');
