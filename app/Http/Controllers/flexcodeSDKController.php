@@ -18,7 +18,8 @@ class flexcodeSDKController extends Controller
     }
     public static function register($id)
     {
-    	return Flexcodesdk::registerUrl($id);
+        $fles=new Flexcodesdk;
+    	return $fles->registerUrl($id);
     }
     public function save(Request $request, $id)
     {
