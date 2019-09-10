@@ -45,7 +45,7 @@ $image=$url.$prisoner_image;
 <div class="alert alert-info">
     No face match
 </div>
-
+@endif
 @endif
 </div>
 </div>
