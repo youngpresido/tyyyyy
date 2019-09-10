@@ -81,6 +81,6 @@
   $(document).ready(function() {
     $('#table').DataTable();
 } );
-
+ </script>
  
 @endpush
