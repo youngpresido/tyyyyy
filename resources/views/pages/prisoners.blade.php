@@ -33,7 +33,6 @@
         <th>Sex</th>
         <th>Ethnicity</th>
         <th>Date of Birth</th>
-         <th>Created_at</th>
          <th>Personnel</th>
          <th>Actions</th>
             </tr>
@@ -56,7 +55,6 @@
             <td>{{$prisoner->sex}}</td>
             <td>{{$prisoner->ethnicity}}</td>
             <td>{{$prisoner->date_of_birth}}</td>
-            <td>{{$prisoner->created_at}}</td>
             <td>{{$prisoner->personnel}}</td>
             <td><button class="edit-modal btn btn-info"
             data-info="{{$prisoner->id}},{{$prisoner->first_name}},{{$prisoner->last_name}},{{$prisoner->sex}},{{$prisoner->ethnicity}},{{$prisoner->soc_number}},{{$prisoner->state}}">
