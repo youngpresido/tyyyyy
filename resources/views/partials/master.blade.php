@@ -12,7 +12,7 @@
   <title>Dashboard</title>
 
   <!-- Custom fonts for this template-->
-  <link href="{{asset('asset/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+  <!-- <link href="{{asset('asset/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css"> -->
 
   <!-- Page level plugin CSS-->
   <link href="{{asset('asset/css/mystyle.css')}}" rel="stylesheet">
