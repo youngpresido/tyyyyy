@@ -81,16 +81,8 @@
           </div>
           <div class="item">
             <label for="phone">Marital Status<span>*</span></label>
-            <select id="phone" type="tel"   placeholder="marital_status" style="width:450px;">Marital Status
-                <option>Single</option>
-                <option>Married</option>
-                <option>Divorced</option>
-            </select>
-            @error('marital_status')
-            <span class="text-danger">
-                {{$message}}
-            </span>
-            @enderror
+            <input id="phone" type="tel"   placeholder="{{$prisoner->marital_status}}" disabled>         
+            
           </div>
           <div class="item">
             <label for="phone">Date of Birth<span></span></label>
