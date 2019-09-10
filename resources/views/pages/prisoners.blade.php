@@ -56,14 +56,14 @@
             <td>{{$prisoner->ethnicity}}</td>
             <td>{{$prisoner->date_of_birth}}</td>
             <td>{{$prisoner->personnel}}</td>
-            <td><a class="edit-modal btn btn-info" href=""
+            <td><button class="edit-modal btn btn-info"
             data-info="{{$prisoner->id}},{{$prisoner->first_name}},{{$prisoner->last_name}},{{$prisoner->sex}},{{$prisoner->ethnicity}},{{$prisoner->soc_number}},{{$prisoner->state}}">
             <span class="glyphicon glyphicon-edit"></span> Edit
-</a>
-        <a class="delete-modal btn btn-danger" href=""
+        </button>
+        <button class="delete-modal btn btn-danger"
             data-info="{{$prisoner->id}},{{$prisoner->first_name}},{{$prisoner->last_name}},{{$prisoner->sex}},{{$prisoner->ethnicity}},{{$prisoner->soc_number}},{{$prisoner->state}}">
             <span class="glyphicon glyphicon-trash"></span> Delete
-</a></td>
+        </button></td>
         </tr>
       @endforeach
    @endif
