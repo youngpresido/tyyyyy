@@ -404,7 +404,7 @@ if ($err) {
 $response = $client->post('https://api-us.faceplusplus.com/facepp/v3/detect', ['form_params' => $data]);
 
 $result = $response->getBody()->getContents();
-dd($result);
+dd($result->faces);
             
 
         }
