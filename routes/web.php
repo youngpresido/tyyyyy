@@ -10,8 +10,6 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['namespace' => 'idekite\flexcodesdk\Controllers'], function()
-{
     Route::get('test', ['uses' => 'flexcodeSDKController@index']);
     Route::prefix('fingerprints')->group(function () {
 	    Route::get('/', function () {
@@ -28,7 +26,6 @@ Route::group(['namespace' => 'idekite\flexcodesdk\Controllers'], function()
 	    Route::get('verify/{id}', ['uses' => 'flexcodeSDKController@verify']);
 	    Route::post('verify/{id}', ['uses' => 'flexcodeSDKController@saveverify']);
 	});
-});
 
 
 
