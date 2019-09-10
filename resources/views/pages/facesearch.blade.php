@@ -26,8 +26,8 @@ $image=$url.$prisoner_image;
 <div class="card" style="width: 10rem;">
   <img src="{{$image}}" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">Name: {{$prisoner->first_name}} {{$prisoner->last_name}}</h5>
-    <p class="card-text">{{$prisoner->outcome}}</p>
+    <h5 class="card-title"><b>Name:</b> {{$prisoner->first_name}} {{$prisoner->last_name}}</h5>
+    <p class="card-text"><b>Status:</b>{{$prisoner->outcome}}</p>
     <a href="{{route('ki',$prisoner->id)}}" class="btn btn-primary">Check details
     </a>
   </div>
