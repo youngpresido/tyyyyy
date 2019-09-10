@@ -56,7 +56,12 @@
             <td>{{$prisoner->ethnicity}}</td>
             <td>{{$prisoner->date_of_birth}}</td>
             <td>{{$prisoner->personnel}}</td>
-            <td><a class="btn btn-info">
+            <td>
+            <a href="{{}}" class=" btn btn-primary">
+           
+           <span class="glyphicon glyphicon-message"></span> View Details
+</a>   
+            <a class="btn btn-info">
             
             <span class="glyphicon glyphicon-edit"></span> Edit
 </a>
