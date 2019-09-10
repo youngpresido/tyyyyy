@@ -404,7 +404,13 @@ if ($err) {
 $response = $client->post('https://api-us.faceplusplus.com/facepp/v3/detect', ['form_params' => $data]);
 
 $result = $response->getBody()->getContents();
-dd($result->faces);
+while (!$result->eof()) {
+	echo $result->read(1024);
+	flush();
+}
+echo "\n\n";
+dd(json_decode((string) $result, true));
+// dd($result->faces);
             
 
         }
