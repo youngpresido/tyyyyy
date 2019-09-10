@@ -400,11 +400,11 @@ if ($err) {
 $response = $client->post('https://api-us.faceplusplus.com/facepp/v3/detect', ['form_params' => $data]);
 
 $result = $response->getBody();
-while (!$result->eof()) {
-	echo $result->read(1024);
-	flush();
-}
-echo "\n\n";
+// while (!$result->eof()) {
+// 	echo $result->read(1024);
+// 	flush();
+// }
+// echo "\n\n";
 $myResult=json_decode((string) $result, true);
 if($myResult['faces'][0]['face_token']){
     return $myResult['faces'][0]['face_token'];
