@@ -37,46 +37,7 @@ class PrisonerController extends Controller
     }
     public function edit(Request $request,$id )
     {
-        $prisoner=Prisoner::whereId($id)->first();
-        $prisoner=new Prisoner([
-            'first_name'=>$request->first_name,
-            'last_name'=>$request->last_name,
-            'soc_number'=>$request->soc_number,
-            'arrest_number'=> $request->arrest_number,
-            'address'=>$request->address,
-            'state'=>$request->state,
-            'postal_code'=>$request->postal_code,
-            'phone'=>$request->phone,
-            'identification_number'=>$request->identification_number,
-            'marital_status'=>$request->marital_status,
-            'date_of_birth'=>$request->date_of_birth,
-            'sex'=>$request->sex,
-            'ethnicity'=>$request->ethnicity,
-            'height'=>$request->height,
-            'weight'=>$request->weight,
-            'place_of_birth'=>$request->place_of_birth,
-            'employer_name'=>$request->employer_name,
-            'employer_address'=>$request->employer_address,
-            'employer_state'=>$request->employer_state,
-            'employer_postalcode'=>$request->employer_postalcode,
-            'job_title'=>$request->job_title,
-            'appearance'=>$request->appearance,
-            'hair'=>$request->hair,
-            'eye_color'=>$request->eye_color,
-            'bvn'=>$request->bvn,
-            'description_of_complexion'=>$request->description_of_complexion,
-            'station'=>$request->station,
-            'outcome'=>$request->outcome,
-            'weapon'=>$request->weapon,
-            'personnel'=>$request->personnel,
-            'finger_print'=>$request->fingerprint,
-            'image_id'=>$image,
-            'image'=>$files
-        ]);
-        if($prisoner->save()){
-            return "saved successfully";
-        }
-
+     
     }
 
 //     public function anyData()
