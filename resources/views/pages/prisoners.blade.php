@@ -53,7 +53,16 @@
             <td>{{$prisoner->state}}</td>
             <td>{{$prisoner->marital_status}}</td>
             <td>{{$prisoner->sex}}</td>
-            <td>{{$prisoner->ethnicity}}</td>
+            <td>
+            @if($prisoner->ethnicity=="1")
+                  <td>Hausa</td>
+               @elseif($prisoner->ethnicity=="2")
+               <td>Yoruba</td>
+               @elseif($prisoner->ethnicity=="3")
+               <td>Igbo</td>
+               @endif
+
+            </td>
             <td>{{$prisoner->date_of_birth}}</td>
             <td>{{$prisoner->personnel}}</td>
             <td>
