@@ -393,27 +393,30 @@ if ($err) {
         }
         public function detectface($url)
         {
-            dd($url);
-            $headers = [
-                'Content-Type' => 'application/json',
-            ];
-            $client = new GuzzleClient([
-                'headers' => $headers
-            ]);
-            $myWork='myWork';
-
-            $body = '{
-                "api_key":"md-UGvEKzPVwzYNwWkGXMMKRZoVl5dVc",
-                "api_secret":"i6aysWk3H2h6LNgAqJhhar7SBEjUz7NC",
-                "image_url" : '.$url.',
-
-        
-            }';
-            $r = $client->request('POST', 'https://api-us.faceplusplus.com/facepp/v3/detect', [
-                'body' => $body
-            ]);
-            $response = $r->getBody()->getContents();
-            dd($response);
+            $postdata = http_build_query(
+                array(
+                    "api_key"=>"md-UGvEKzPVwzYNwWkGXMMKRZoVl5dVc",
+                "api_secret"=>"i6aysWk3H2h6LNgAqJhhar7SBEjUz7NC",
+                "image_url" => $url,
+                )
+            );
+         
+            // Set the POST options
+            $opts = array('http' => 
+                array (
+                    'method' => 'POST',
+                    'header' => 'Content-type: application/xwww-form-urlencoded',
+                    'content' => $postdata
+                )
+            );
+         
+            // Create the POST context
+            $context  = stream_context_create($opts);
+         
+            // POST the data to an api
+            $url = 'https://api-us.faceplusplus.com/facepp/v3/detect';
+            $result = file_get_contents($url, false, $context);
+            dd($result);
 
 
         }
