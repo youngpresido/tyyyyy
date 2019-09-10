@@ -18,7 +18,7 @@
   <link href="{{asset('asset/css/mystyle.css')}}" rel="stylesheet">
    <link href="{{asset('asset/vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
   <!--<link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css"> -->
-  <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> -->
+  
         <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
   <!-- Custom styles for this template-->
   <link href="{{asset('asset/css/sb-admin.css')}}" rel="stylesheet">

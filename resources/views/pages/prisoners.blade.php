@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="wrapper">
-
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Sidebar -->
    @include('partials.nav')
    <div id="content-wrapper">
