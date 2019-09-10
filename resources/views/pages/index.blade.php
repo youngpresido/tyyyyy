@@ -57,7 +57,7 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-shopping-cart"></i>
                 </div>
-                <div class="mr-5">{{$prisoners->where('sex','male')->count()}}} Males!</div>
+                <div class="mr-5">{{$prisoners->where('sex','male')->count()}} Males!</div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">View Details</span>
