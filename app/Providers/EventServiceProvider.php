@@ -14,6 +14,46 @@ class EventServiceProvider extends ServiceProvider
      *
      * @var array
      */
+    public function __construct()
+    {
+        Event::listen('fingerprints.register', function($data)
+{
+    // Do some stuff before informing URL to user
+
+    // inform SDK to open this URL
+    echo url('test?message=' . $data['message']);
+});
+
+
+Event::listen('fingerprints.verify', function($data){
+    $action = $data['extras']['action'];
+    switch ($action) {
+        case 'login':
+            // Log user to database here, i.e: Adding new session etc.
+            // Example: 
+            // Session::add($data['user']->id);
+
+            // Then tell SDK to open this page
+            echo action('testController@index', array('message' => $data['message']));
+            break;
+        
+        case 'transactions.confirm':
+            // mark transaction as verified, example usage:
+
+            // $transaction = Transaction::find($data['extras']['transaction_id']);
+            // $transaction->verified = true;
+            // $transaction->save();
+
+            // Then tell SDK to open this page
+            echo route('transactions', 
+                array(
+                    'message' => $data['message'], 
+                    'id' => $data['extras']['transaction_id'])
+                );
+            break;
+    }
+});
+    }
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
