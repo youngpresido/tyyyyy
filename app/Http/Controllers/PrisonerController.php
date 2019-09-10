@@ -11,7 +11,7 @@ use \Clarifai\DTOs\Inputs\ClarifaiURLImage;
 use Clarifai\DTOs\Searches\SearchBy;
 use Clarifai\DTOs\Searches\SearchInputsResult;
 use App\Traits\UploadTrait;
-use GuzzleHttp\Client as GuzzleClient;
+use GuzzleHttp\Client;
 // use Intervention\Image\Facades\Image as Image;
 class PrisonerController extends Controller
 {
