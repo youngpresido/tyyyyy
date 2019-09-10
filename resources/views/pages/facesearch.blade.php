@@ -25,7 +25,7 @@
 <div class="row">
     <div class="col-6" style="border:0px;">
 @if(isset($prisoner))
-{{var_dump($prisoner)}}
+{{var_dump(type($prisoner))}}
 @if(is_array($prisoner))
 <?php
 $url=env('APP_URL');
