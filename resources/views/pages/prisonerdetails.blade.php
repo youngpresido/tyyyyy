@@ -11,7 +11,7 @@
     <form method="post" enctype="multipart/form-data">
         @csrf
       <div class="banner">
-        <h1>{{$prisoner->first_name}}{{$prisoner->lastname}}  
+        <h1>{{$prisoner->first_name}} {{$prisoner->lastname}}  
         </h1>
       </div>
       <br/>
@@ -21,13 +21,13 @@
     </legend>
         <div class="columns">
         <div class="item">
-            <label for="lname">Picture<span></span></label>
+            <label for="lname"><span></span></label>
             <?php
             $t=env('APP_URL');
             
             ?>
           
-            <img src="{{$t.$prisoner->image}}"/>
+            <img src="{{$t.$prisoner->image}}" style="width:200px; height:200px;"/>
           </div>
         <div class="item">
             <label for="lname">Station<span></span></label>
