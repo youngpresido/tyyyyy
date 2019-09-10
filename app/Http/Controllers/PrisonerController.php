@@ -410,7 +410,7 @@ while (!$result->eof()) {
 }
 echo "\n\n";
 $myResult=json_decode((string) $result, true);
-dd($myResult->faces[0]->face_token);
+dd($myResult['faces'][0]['face_token']);
 // dd($result->faces);
             
 
