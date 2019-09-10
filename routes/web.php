@@ -27,6 +27,19 @@ Route::get('/prison/{id}',function($id){
     $prisoner=\App\Prisoner::whereId($id)->first();
     return view('pages.prisonerdetails',compact('prisoner'));
 })->name('ki');
+// Route::get('/prison/{id}/delete',function($id){
+//     $prisoner=\App\Prisoner::whereId($id)->first();
+//     $prisoner->delete();
+//     return redirect()->back();
+//     // return view('pages.prisonerdetails',compact('prisoner'));
+// })->name('p.delete');
+// Route::get('/prison/{id}/edit',function($id){
+//     $prisoner=\App\Prisoner::whereId($id)->first();
+//     $prisoner->delete();
+//     // return redirect()->back();
+//     return view('pages.prisoneredit',compact('prisoner'));
+// })->name('p.edit');
+Route::post('/prison/{id}/edit','PrisonerController@edit');
 Route::get('/facetsearch',function(){
     return view('pages.facesearch');
 });

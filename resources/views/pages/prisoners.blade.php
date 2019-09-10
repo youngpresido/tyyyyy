@@ -57,18 +57,20 @@
             <td>{{$prisoner->date_of_birth}}</td>
             <td>{{$prisoner->personnel}}</td>
             <td>
-            <a href="{{}}" class=" btn btn-primary">
+            <a href="{{route('ki',$prisoner->id)}}" class=" btn btn-primary">
            
            <span class="glyphicon glyphicon-message"></span> View Details
 </a>   
-            <a class="btn btn-info">
+            <!-- <a href="" class="btn btn-info">
             
             <span class="glyphicon glyphicon-edit"></span> Edit
 </a>
-        <a href="{{}}" class=" btn btn-danger">
+        <a href="" class=" btn btn-danger">
            
             <span class="glyphicon glyphicon-trash"></span> Delete
-</a></td>
+</a>
+ -->
+ </td>
         </tr>
       @endforeach
    @endif
