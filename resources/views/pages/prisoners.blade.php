@@ -17,7 +17,7 @@
       <a href="{{URL('/facetsearch')}}" class="btn btn-lg btn-success">Search with facial recognition</a>
       </div>
    </div>
-   <table class="table table-bordered" id="users-table">
+   <table class="table table-bordered" id="table">
         <thead>
             <tr>
             <th>id</th> 
@@ -35,8 +35,41 @@
         <th>Date of Birth</th>
          <th>Created_at</th>
          <th>Personnel</th>
+         <th>Actions</th>
             </tr>
         </thead>
+        <tbody>
+         @if($prisoners->isEmpty())
+         <tr>
+            <td>No Data yet</td>
+</tr>
+@else
+
+         @foreach($prisoners as $prisoner)
+        <tr>
+            <td>{{$loop->index+1}}</td>
+            <td>{{$prisoner->soc_number}}</td>
+            <td>{{$prisoner->first_name}}</td>
+            <td>{{$prisoner->last_name}}</td>
+            <td>{{$prisoner->state}}</td>
+            <td>{{$prisoner->marital_status}}</td>
+            <td>{{$prisoner->sex}}</td>
+            <td>{{$prisoner->ethnicity}}</td>
+            <td>{{$prisoner->date_of_birth}}</td>
+            <td>{{$prisoner->created_at}}</td>
+            <td>{{$prisoner->personnel}}</td>
+            <td><button class="edit-modal btn btn-info"
+            data-info="{{$prisoner->id}},{{$prisoner->first_name}},{{$prisoner->last_name}},{{$prisoner->sex}},{{$prisoner->ethnicity}},{{$prisoner->soc_number}},{{$prisoner->state}}">
+            <span class="glyphicon glyphicon-edit"></span> Edit
+        </button>
+        <button class="delete-modal btn btn-danger"
+            data-info="{{$prisoner->id}},{{$prisoner->first_name}},{{$prisoner->last_name}},{{$prisoner->sex}},{{$prisoner->ethnicity}},{{$prisoner->soc_number}},{{$prisoner->state}}">
+            <span class="glyphicon glyphicon-trash"></span> Delete
+        </button></td>
+        </tr>
+      @endforeach
+   @endif
+    </tbody>
     </table>
 
 </div>
@@ -45,24 +78,10 @@
 @endsection
 
 @push('scripts')
+
 <script>
-$(function() {
-    $('#users-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "{!! route('allprisoner') !!}",
-        columns: [
-            { data: 'id', name: 'id' },
-            { data: 'first_name', name: 'first_name' },
-            { data: 'last_name', name: 'last_name' },
-            { data: 'marital_status', name: 'marital_status' },
-            { data: 'sex', name: 'sex' },
-            { data: 'ethnicity', name: 'ethnicity' },
-            { data: 'date_of_birth', name: 'date_of_birth' },
-            { data: 'created_at', name: 'created_at' },
-            { data: 'personnel', name: 'personnel' }
-        ]
-    });
-});
-</script>
+  $(document).ready(function() {
+    $('#table').DataTable();
+} );
+ </script>
 @endpush

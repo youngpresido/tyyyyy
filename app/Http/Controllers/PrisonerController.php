@@ -22,19 +22,24 @@ class PrisonerController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function getIndex()
-    {
-        return view('pages.prisoners');
-    }
+    // public function getIndex()
+    // {
+    //     return view('pages.prisoners');
+    // }
     // public function index(PrisonersDataTable $dataTable)
     // {
     //     return $dataTable->render('pages.prisoners');
     // }
+    public function index()
+    {
+        $prisoners=Prisoner::all();
+        return view('pages.prisoners',compact('prisoners'));
+    }
 
-    public function anyData()
-{
-    return Datatables::of(Prisoner::query())->make(true);
-}
+//     public function anyData()
+// {
+//     return Datatables::of(Prisoner::query())->make(true);
+// }
     public function create() {
         $model = Prisoner::query();
     
