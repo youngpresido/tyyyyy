@@ -6,17 +6,17 @@
     <!-- Sidebar -->
    @include('partials.nav')
    <div id="content-wrapper">
-
-<div class="container-fluid">
    <div class="row">
-      <div class="col-6">
+      <div class="col-8">
          <a href="" class="btn btn-lg btn-success">Search with biometric</a>
 
       </div>
-      <div class="col-6" style="margin-left:0;">
+      <div class="col-4" style="margin-left:0;">
       <a href="{{URL('/facetsearch')}}" class="btn btn-lg btn-success">Search with facial recognition</a>
       </div>
    </div>
+<div class="container-fluid">
+   
    <table class="table table-bordered" id="table">
         <thead>
             <tr>
