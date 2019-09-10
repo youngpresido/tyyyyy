@@ -398,8 +398,8 @@
       <label for="checkoutdate">Take Fingerprint <span>*</span></label>
 
       <!-- <input id="vid-take" type="button" value="Take Photo"/> -->
-      <input type="file" accept="image/*;capture=camera">
-    
+      <!-- <input type="file" accept="image/*;capture=camera"> -->
+      {{ flexcodesdk::getRegistrationLink(1) }}
             @error('personnel')
             <span class="text-danger">
                 {{$message}}
