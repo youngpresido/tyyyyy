@@ -194,13 +194,16 @@ $response = $client->addInputs([
                 // $face1=env('APP_URL')."/uploads/images/segun_1567771035.jpeg";
                 $facess=env('APP_URL')."{$filePath}";
                 $result=$this->faceplussearch($facess);
+                $prisoner="";
                 if($result!="error"){    
                     $prisoner=Prisoner::whereImage_id($result)->first();
-                    return view("pages.facesearch",compact('prisoner'));
-
+                    
                 }else{
-                    return "No face match";
+                    $prisoner="No face match";
                 }
+            
+                    
+                    return view("pages.facesearch",compact('prisoner'));
             }   
         }
         public function facex($m1,$m2)

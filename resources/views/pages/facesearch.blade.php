@@ -25,6 +25,7 @@
 <div class="row">
     <div class="col-6" style="border:0px;">
 @if(isset($prisoner))
+@if(is_array($prisoner))
 <?php
 $url=env('APP_URL');
 $prisoner_image=$prisoner->image;
@@ -40,6 +41,11 @@ $image=$url.$prisoner_image;
   </div>
 </div>
 </div>
+@else
+<div class="alert alert-info">
+    No face match
+</div>
+
 @endif
 </div>
 </div>
