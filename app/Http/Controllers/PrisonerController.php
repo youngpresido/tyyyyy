@@ -194,28 +194,13 @@ $response = $client->addInputs([
                 // $face1=env('APP_URL')."/uploads/images/segun_1567771035.jpeg";
                 $facess=env('APP_URL')."{$filePath}";
                 $result=$this->faceplussearch($facess);
-                // dd($facess);
-                // $result=$this->facesearch($facess);   
-                // dd($result->status()->description());
-                // if($result->status()->description()=="Ok"){
-                //     $image=$result->get()[0]->id();
-                //     // dd($image);
-                // }
-                // $prisoner_images=Prisoner::all();
-            //     $myImage="";
-            //     foreach($prisoner_images as $prisoner_image){
-            //         $result=$this->facex($facess,env('APP_URL').$prisoner_image->image);
-            //         if($result->confidence>=0.6){
-            //             $myImage=$prisoner_image->id;
-            //             break;
-            //         }
-            //     }
-            //     if($myImage!=""){
-            //         $myResult=Prisoner::whereId($myImage)->first();
-            //         return $myResult;
-            //     }
-            //     return "no account for this person";
-                
+                if($result){    
+                    $prisoner=Prisoner::whereImage_id($result)->first();
+                    dd($prisoner);
+
+                }else{
+                    return "No face match";
+                }
             }   
         }
         public function facex($m1,$m2)
@@ -476,9 +461,9 @@ $result = $response->getBody();
 // }
 // echo "\n\n";
 $myResult=json_decode((string) $result, true);
-dd($myResult);
-if($myResult['faces'][0]['face_token']){
-    return $myResult['faces'][0]['face_token'];
+// dd($myResult);
+if($myResult['faces']['results']['face_token']){
+    return $myResult['faces']['results']['face_token'];
 }else{
     return "error";
 }
