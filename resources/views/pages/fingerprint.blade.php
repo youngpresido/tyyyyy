@@ -7,7 +7,7 @@
    <div id="content-wrapper">
 
 <div class="container-fluid">
-{{ flexcodesdk::getRegistrationLink($prison) }}
+<a href="{{ flexcodesdk::getRegistrationLink($prison) }}">click fingerprint</a>
 </div>
 </div>
 </div>
