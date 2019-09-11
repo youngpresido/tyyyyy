@@ -384,7 +384,7 @@
           <div class="item">
       <label for="checkoutdate">Upload Picture <span>*</span></label>
 
-    <input type="file" name="image" capture >
+    <input type="file" name="image" accept="image/*;capture=camera" >
             @error('personnel')
             <span class="text-danger">
                 {{$message}}
