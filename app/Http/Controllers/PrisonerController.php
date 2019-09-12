@@ -485,7 +485,7 @@ $result = $response->getBody();
 $myResult=json_decode((string) $result, true);
 // dd($myResult);
 if(count($myResult['faces'])>=1){
-    if($myResult['results'][0]['confidence']<60){
+    if($myResult['results'][0]['confidence']<80){
         return "error";
     }else{
         return $myResult['results'][0]['face_token'];    
