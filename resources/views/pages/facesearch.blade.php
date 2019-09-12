@@ -12,6 +12,12 @@
 <form method="post" enctype="multipart/form-data">
     @csrf
     <input type="file" name="image">
+
+    @error('image')
+    <span class="alert alert-error">
+      {{$message}}
+    </span>
+    @enderror
     <input type="submit">
 </div>
 </form>
