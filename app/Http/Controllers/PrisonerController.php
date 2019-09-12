@@ -82,7 +82,7 @@ class PrisonerController extends Controller
             'weapon'=>'required',
             'personnel'=>'required',
             
-            'image'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image'=>'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
         $image="";
         $files="";
@@ -197,6 +197,9 @@ $response = $client->addInputs([
             }
         public function facetsearch(Request $request)
         {
+            $this->validate($request,[
+                'image'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            ]);
             // dd($request->has('image'));
             if ($request->has('image')) {
                 $image = $request->file('image');
