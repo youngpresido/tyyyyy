@@ -150,7 +150,7 @@ class PrisonerController extends Controller
     
     public function face($result)
     {
-        $client = new ClarifaiClient('f0a6f4493bc945a29a494d59f752e1f0');
+        $client = new ClarifaiClient('340');
 
 $response = $client->addInputs([
     new ClarifaiURLImage($result),
@@ -171,7 +171,7 @@ $response = $client->addInputs([
     public function faceSearch($test)
     {
                 
-        $client = new ClarifaiClient('f0a6f4493bc945a29a494d59f752e1f0');
+        $client = new ClarifaiClient('f00');
 
         $response = $client->searchInputs(
                 SearchBy::imageURL($test))
@@ -232,8 +232,8 @@ $response = $client->addInputs([
         {
             $headers = [
                 'Content-Type' => 'application/json',
-                'user_id'=>'229e1de8b60a841ca29c',
-                'user_key'=>'2b6b6c489d8410a3eed8'
+                'user_id'=>'229c',
+                'user_key'=>'2d8'
             ];
             $client = new GuzzleClient([
                 'headers' => $headers
@@ -264,7 +264,7 @@ curl_setopt_array($curl, array(
 	CURLOPT_CUSTOMREQUEST => "POST",
 	CURLOPT_POSTFIELDS => [ "name" => $person], 
 	CURLOPT_HTTPHEADER => array(
-		"token: 129e7db4f08940a2873d7b25842f20ab"
+		"token: 0ab"
 	),
 ));
 
@@ -298,7 +298,7 @@ curl_setopt_array($curl, array(
 	// or use URL
 	CURLOPT_POSTFIELDS => [ "photo" => $url ], 
 	CURLOPT_HTTPHEADER => array(
-		"token: 129e7db4f08940a2873d7b25842f20ab"
+		"token: f20ab"
 	),
 ));
 
@@ -331,7 +331,7 @@ curl_setopt_array($curl, array(
 	// or use URL
 	CURLOPT_POSTFIELDS => [ "photo" => $url ], 
 	CURLOPT_HTTPHEADER => array(
-		"token: 129e7db4f08940a2873d7b25842f20ab"
+		"token: 20ab"
 	),
 ));
 
@@ -353,8 +353,8 @@ if ($err) {
         {
             $headers = [
                 'Content-Type' => 'application/json',
-                'app_id'=> "e28ce17f",
-                'app_key'=> "dffd35811459f63b747e3ed15eaf8efb"
+                'app_id'=> "f",
+                'app_key'=> "fb"
 
             ];
             $client = new GuzzleClient([
@@ -377,8 +377,8 @@ if ($err) {
         {
             $headers = [
                 'Content-Type' => 'application/json',
-                'app_id'=> "e28ce17f",
-                'app_key'=> "dffd35811459f63b747e3ed15eaf8efb"
+                'app_id'=> "ef",
+                'app_key'=> "fb"
 
             ];
             $client = new GuzzleClient([
@@ -400,8 +400,8 @@ if ($err) {
         public function detectface($url)
         {
             $data = array(
-                "api_key"=>"md-UGvEKzPVwzYNwWkGXMMKRZoVl5dVc",
-                "api_secret"=>"i6aysWk3H2h6LNgAqJhhar7SBEjUz7NC",
+                "api_key"=>"5dVc",
+                "api_secret"=>"NC",
                 "image_url" => $url,
 );
             
@@ -431,10 +431,10 @@ if($myResult['faces'][0]['face_token']){
             $token=$this->detectface($urls);
             if($token!="error"){
                 $data = array(
-                    "api_key"=>"md-UGvEKzPVwzYNwWkGXMMKRZoVl5dVc",
-                    "api_secret"=>"i6aysWk3H2h6LNgAqJhhar7SBEjUz7NC",
+                    "api_key"=>"m",
+                    "api_secret"=>"iNC",
                     "face_tokens" => $token,
-                    "faceset_token"=>"2812bbd19aa1c8c9dc2aa0f018c336c6",
+                    "faceset_token"=>"c6",
                     );
                     $client = new Client();
                     $response = $client->post('https://api-us.faceplusplus.com/facepp/v3/faceset/addface', ['form_params' => $data]);
@@ -467,10 +467,10 @@ if($myResult['faces'][0]['face_token']){
         {
 
             $data = array(
-                "api_key"=>"md-UGvEKzPVwzYNwWkGXMMKRZoVl5dVc",
-                "api_secret"=>"i6aysWk3H2h6LNgAqJhhar7SBEjUz7NC",
+                "api_key"=>"mc",
+                "api_secret"=>"NC",
                 "image_url" =>$url,
-                "faceset_token"=>"2812bbd19aa1c8c9dc2aa0f018c336c6",
+                "faceset_token"=>"c6",
 
         
 );
